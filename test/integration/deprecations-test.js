@@ -6,16 +6,19 @@ const Mocktokit = Octokit
   })
 
 describe('deprecations', () => {
-  beforeEach(() => {
-    cy.stub(console, 'warn')
-  })
-
   it('octokit.search.issues() has been renamed to octokit.search.issuesAndPullRequests() (2018-12-27)', () => {
-    const octokit = new Mocktokit()
+    let warnCalled = false
+    const octokit = new Mocktokit({
+      log: {
+        warn: () => {
+          warnCalled = true
+        }
+      }
+    })
 
     return octokit.search.issues({ q: 'foo' })
       .then(() => {
-        expect(console.warn.callCount).to.equal(1)
+        expect(warnCalled).to.equal(true)
       })
   })
 })
