@@ -1,6 +1,7 @@
 const Octokit = require('./lib/core')
 
 const CORE_PLUGINS = [
+  require('./plugins/debug'),
   require('./plugins/authentication'),
   require('./plugins/pagination'),
   require('./plugins/register-endpoints'),
