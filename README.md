@@ -23,6 +23,7 @@
 - [Register custom endpoint methods](#register-custom-endpoint-methods)
 - [Throttling](#throttling)
 - [Automatic retries](#automatic-retries)
+- [Logging](#logging)
 - [Debug](#debug)
 - [Contributing](#contributing)
 - [Credits](#credits)
